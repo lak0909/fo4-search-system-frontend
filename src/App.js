@@ -1,8 +1,9 @@
 import React from 'react'
+import Top from './layout/Top'
 
 const App = () => {
     return(
-        <div></div>
+        <Top></Top>
     )
 }
 
