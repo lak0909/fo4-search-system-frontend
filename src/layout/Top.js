@@ -1,18 +1,27 @@
 import React from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
 const Top = () => {
+    const history = useHistory()
     return (
         <nav className="bp3-navbar bp3-dark">
             <div className="bp3-navbar-group bp3-align-left">
-                <div className="bp3-navbar-heading">MYFO4</div>
-                <input className="bp3-input" placeholder="Search Player Name..." type="text" />
-            </div>
-            <div className="bp3-navbar-group bp3-align-right">
-                <button className="bp3-button bp3-minimal bp3-icon-home">Home</button>
-                <button className="bp3-button bp3-minimal bp3-icon-document">Compare</button>
+                <Link to="/" style={{ textDecoration: 'none', color: 'white'}}>
+                    <span className="bp3-navbar-heading">MYFO4</span>
+                </Link>
+                <Link to="/" style={{ textDecoration: 'none', color: 'white'}}>
+                    <span className="bp3-button bp3-minimal bp3-icon-series-search">Search</span>
+                </Link>
+                <Link to="/compare" style={{ textDecoration: 'none', color: 'white'}}>
+                    <span className="bp3-button bp3-minimal bp3-icon-timeline-bar-chart">Compare</span>
+                </Link>
                 <span className="bp3-navbar-divider"></span>
-                <button className="bp3-button bp3-minimal bp3-icon-user">Recommend</button>
-                <button className="bp3-button bp3-minimal bp3-icon-notifications">Record</button>
+                <Link to="/recommend" style={{ textDecoration: 'none', color: 'white'}}>
+                    <span className="bp3-button bp3-minimal bp3-icon-thumbs-up">Recommend</span>
+                </Link>
+                <Link to="/record" style={{ textDecoration: 'none', color: 'white'}}>
+                    <span className="bp3-button bp3-minimal bp3-icon-doughnut-chart">Record</span>
+                </Link>
             </div>
         </nav>
     )
