@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Top = () => {
-    const history = useHistory()
     return (
         <nav className="bp3-navbar bp3-dark">
             <div className="bp3-navbar-group bp3-align-left">
