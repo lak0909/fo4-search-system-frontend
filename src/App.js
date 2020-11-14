@@ -1,9 +1,13 @@
 import React from 'react'
-import Top from './layout/Top'
+import { BrowserRouter } from 'react-router-dom'
+import { Top, Main } from './layout'
 
 const App = () => {
     return(
-        <Top></Top>
+        <BrowserRouter>
+            <Top></Top>
+            <Main></Main>
+        </BrowserRouter>
     )
 }
 
