@@ -1,12 +1,44 @@
 import { SearchConstants } from '../constants'
 
 export const SearchAction = {
-    change
+    changeInput,
+    setResultArray,
+    setLoading,
+    fetchData,
+    setError
 }
 
-function change(value){
+function fetchData(value){
+    return{
+        type: SearchConstants.FETCH_DATA,
+        payload: value
+    }
+}
+
+function changeInput(value){
     return{
         type: SearchConstants.SEARCHVALUE,
+        payload: value
+    }
+}
+
+function setResultArray(value){
+    return{
+        type: SearchConstants.RESULTARRAY,
+        payload: value
+    }
+}
+
+function setLoading(value){
+    return{
+        type: SearchConstants.SETLOADING,
+        payload: value
+    }
+}
+
+function setError(value){
+    return{
+        type: SearchConstants.SETERROR,
         payload: value
     }
 }

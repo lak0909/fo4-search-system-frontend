@@ -3,8 +3,10 @@ import { SearchAction } from '../actions'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Search = () => {
-    const search = useSelector(state => state.search.search)
+    const { search, resultArray } = useSelector(state => state.search)
     const dispatch = useDispatch()
+
+    console.log(resultArray)
 
     return (
         <div className="home" style={{textAlign: 'center'}}>
@@ -27,9 +29,12 @@ const Search = () => {
                     className="bp3-input" 
                     placeholder="선수명을 입력해주세요." 
                     value={search}
-                    onChange={(e) => dispatch(SearchAction.change(e.target.value))}
+                    onChange={(e) => dispatch(SearchAction.changeInput(e.target.value))}
                 />
-                <button className="bp3-button bp3-minimal bp3-intent-primary bp3-icon-arrow-right"></button>
+                <button 
+                    className="bp3-button bp3-minimal bp3-intent-primary bp3-icon-arrow-right"
+                    onClick={() => dispatch(SearchAction.fetchData(search))}
+                />
             </div>
         </div>
     )
