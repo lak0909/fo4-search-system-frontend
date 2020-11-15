@@ -6,8 +6,6 @@ const Search = () => {
     const { search, resultArray } = useSelector(state => state.search)
     const dispatch = useDispatch()
 
-    console.log(resultArray)
-
     return (
         <div className="home" style={{textAlign: 'center'}}>
             <div className="logo_cont" style={{marginTop: '20px'}}>
