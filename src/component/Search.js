@@ -1,9 +1,10 @@
 import React from 'react'
 import { SearchAction } from '../actions'
 import { useDispatch, useSelector } from 'react-redux'
+import '../css/search.css'
 
 const Search = () => {
-    const { search, resultArray } = useSelector(state => state.search)
+    const { search, resultArray, selected } = useSelector(state => state.search)
     const dispatch = useDispatch()
 
     return (
@@ -31,9 +32,34 @@ const Search = () => {
                 />
                 <button 
                     className="bp3-button bp3-minimal bp3-intent-primary bp3-icon-arrow-right"
-                    onClick={() => dispatch(SearchAction.fetchData(search))}
+                    onClick={() => (search === '' ? null : dispatch(SearchAction.fetchData(search)))}
                 />
             </div>
+            {resultArray.length === 0 ? null :
+            <div className="bp3-card bp3-elevation-1" style={{width: '100%', maxWidth: '650px', margin: '0px auto'}}>
+                {resultArray.map( (val, index) => {
+                    return(
+                        <div id={selected === val.id ? "selected": null} className={"bp3-card bp3-elevation-2 bp3-interactive"} key={index} style={{width: '160px', height: '200px', margin: '10px', display: 'inline-block'}} onClick={() => dispatch(SearchAction.setSelected(val.id))}>
+                            <span>
+                                <img
+                                    src={`http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/players/${val.id}`}
+                                    style={{backgroundImage: 'url('+'http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/season_background/'+val.id.substring(0,3)+'.png)'}}
+                                />
+                            </span>
+                            <div>
+                                <span>
+                                    <img
+                                        style={{verticalAlign: 'middle'}}
+                                        src={'http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/season/'+val.id.substring(0,3)+'.JPG'}
+                                    />
+                                    {val.name}
+                                </span>
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>
+            }
         </div>
     )
 }

@@ -5,7 +5,8 @@ export const SearchAction = {
     setResultArray,
     setLoading,
     fetchData,
-    setError
+    setError,
+    setSelected
 }
 
 function fetchData(value){
@@ -39,6 +40,13 @@ function setLoading(value){
 function setError(value){
     return{
         type: SearchConstants.SETERROR,
+        payload: value
+    }
+}
+
+function setSelected(value){
+    return{
+        type: SearchConstants.SELECTED,
         payload: value
     }
 }
