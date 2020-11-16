@@ -1,0 +1,7 @@
+.bp3-interactive:hover{
+    background: rgba(191, 235, 252,0.9);
+}
+
+#selected{
+    background: rgba(87, 194, 255, 0.9);
+}
