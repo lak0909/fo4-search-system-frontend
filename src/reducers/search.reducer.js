@@ -22,7 +22,8 @@ export const search = (state= initialState, action) => {
         case SearchConstants.RESULTARRAY:
             return{
                 ...state,
-                resultArray: [...action.payload]
+                resultArray: [...action.payload],
+                selectedData: []
             }
         case SearchConstants.SETLOADING:
             return{
@@ -48,6 +49,6 @@ export const search = (state= initialState, action) => {
                 selectedData: [...action.payload]
             }
         default:
-            return state
+            return initialState
     }
 }

@@ -7,7 +7,8 @@ export const SearchAction = {
     fetchData,
     setError,
     setSelected,
-    setSelectedDATA
+    setSelectedDATA,
+    initialize,
 }
 
 function fetchData(value){
@@ -56,5 +57,11 @@ function setSelectedDATA(value){
     return{
         type: SearchConstants.SELECTED_DATA,
         payload: value
+    }
+}
+
+function initialize(){
+    return{
+        type: 'INITIAL'
     }
 }

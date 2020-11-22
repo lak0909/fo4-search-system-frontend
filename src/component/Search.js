@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SearchAction } from '../actions'
 import { useDispatch, useSelector } from 'react-redux'
 import '../css/search.css'
@@ -8,6 +8,12 @@ import PlayerCard from './PlayerCard'
 const Search = () => {
     const { search, resultArray, selected, selectedData } = useSelector(state => state.search)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        return () => {
+            dispatch(SearchAction.initialize())
+        }
+    },[])
 
     return (
         <div className="home" style={{textAlign: 'center'}}>
