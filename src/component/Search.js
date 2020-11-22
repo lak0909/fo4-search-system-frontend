@@ -38,20 +38,31 @@ const Search = () => {
                 />
             </div>
             {resultArray.length === 0 ? null :
-            <div className="bp3-card bp3-elevation-1" style={{width: '100%', maxWidth: '950px', margin: '0px auto'}}>
+            <div className="bp3-card bp3-elevation-1" style={{width: '100%', maxWidth: '950px', margin: '20px auto'}}>
                 {resultArray.map( (val, index) => {
                     return(
                         <PlayerCard
                             key={index}
                             value={val}
-                            selectedValue={val.id === selected ? true : false}
-                            onSelect={() => dispatch(SearchAction.setSelected(val.id))}
+                            selectedValue={val.id === selected.id ? true : false}
+                            onSelect={() => dispatch(SearchAction.setSelected(val))}
                         />
                     )
                 })}
             </div>
             }
-            {/* <BarChart/> */}
+            {selectedData.length === 0 ? null :
+            <div className="bp3-card bp3-elevation-1" style={{ width: '100%', maxWidth: '950px', margin: '20px auto' }}>
+                {selectedData.map( (val, index) => {
+                    return (
+                        <BarChart
+                            key={index}
+                            dataValue={val}
+                        />
+                    )
+                })}
+            </div>
+            }
         </div>
     )
 }

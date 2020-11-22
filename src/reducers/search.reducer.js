@@ -3,7 +3,10 @@ import {SearchConstants} from '../constants'
 const initialState = {
     search: '',
     resultArray: [],
-    selected: '',
+    selected: {
+        id: '',
+        name: '',
+    },
     selectedData: [],
     loading: false,
     error: ''
@@ -34,7 +37,10 @@ export const search = (state= initialState, action) => {
         case SearchConstants.SELECTED:
             return{
                 ...state,
-                selected: action.payload
+                selected: {
+                    id: action.payload.id,
+                    name: action.payload.name
+                }
             }
         case SearchConstants.SELECTED_DATA:
             return{

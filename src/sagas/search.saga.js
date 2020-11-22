@@ -5,7 +5,7 @@ import axios from 'axios'
 
 function * fetchSelectedDATA(action){
     try{
-        const res = yield axios.get(`http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/top_record/${action.payload}`)
+        const res = yield axios.get(`http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/top_record/${action.payload.id}`)
         yield put(SearchAction.setSelectedDATA(res.data))
     }catch(error){
         yield put(SearchAction.setError(error))
