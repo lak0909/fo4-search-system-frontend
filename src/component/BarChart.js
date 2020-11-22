@@ -40,10 +40,10 @@ const BarChart = ({ dataValue }) => {
             style={{ width: '280px', height: '280px', margin: '10px', display: 'inline-block' }}
         >
             <div className={`card border-${positionColor(dataValue.spPosition)} mb-3`}>
-                <h5 className="card-header">
+                <h6 className="card-header">
                     <span className={`text-${positionColor(dataValue.spPosition)}`} style={{ float: 'left' }}>{`포지션: ${position[dataValue.spPosition]}`}</span>
                     <span style={{ float: 'right' }}>{`경기수: ${dataValue.status.matchCount}`}</span>
-                </h5>
+                </h6>
                 <div className="card-body">
                     <Bar
                         width={200}
