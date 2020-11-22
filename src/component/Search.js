@@ -3,12 +3,11 @@ import { SearchAction } from '../actions'
 import { useDispatch, useSelector } from 'react-redux'
 import '../css/search.css'
 import BarChart from './BarChart'
+import PlayerCard from './PlayerCard'
 
 const Search = () => {
     const { search, resultArray, selected, selectedData } = useSelector(state => state.search)
     const dispatch = useDispatch()
-
-    console.log(selectedData)
 
     return (
         <div className="home" style={{textAlign: 'center'}}>
@@ -42,33 +41,17 @@ const Search = () => {
             <div className="bp3-card bp3-elevation-1" style={{width: '100%', maxWidth: '950px', margin: '0px auto'}}>
                 {resultArray.map( (val, index) => {
                     return(
-                        <div 
-                            id={selected === val.id ? "selected": null} 
-                            className={"bp3-card bp3-elevation-2 bp3-interactive"} 
-                            key={index} style={{width: '160px', height: '200px', margin: '10px', display: 'inline-block'}} 
-                            onClick={() => dispatch(SearchAction.setSelected(val.id))}
-                        >
-                            <span>
-                                <img
-                                    src={`http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/players/${val.id}`}
-                                    style={{backgroundImage: 'url('+'http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/season_background/'+val.id.substring(0,3)+'.png)'}}
-                                />
-                            </span>
-                            <div>
-                                <span>
-                                    <img
-                                        style={{verticalAlign: 'middle'}}
-                                        src={'http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/season/'+val.id.substring(0,3)+'.JPG'}
-                                    />
-                                    {val.name}
-                                </span>
-                            </div>
-                        </div>
+                        <PlayerCard
+                            key={index}
+                            value={val}
+                            selectedValue={val.id === selected ? true : false}
+                            onSelect={() => dispatch(SearchAction.setSelected(val.id))}
+                        />
                     )
                 })}
             </div>
             }
-            <BarChart/>
+            {/* <BarChart/> */}
         </div>
     )
 }
