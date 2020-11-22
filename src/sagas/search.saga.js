@@ -1,7 +1,16 @@
 import { SearchAction } from '../actions'
 import { SearchConstants } from '../constants'
-import { put, takeLatest } from 'redux-saga/effects'
+import { put, takeLatest, all } from 'redux-saga/effects'
 import axios from 'axios'
+
+function * fetchSelectedDATA(action){
+    try{
+        const res = yield axios.get(`http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/top_record/${action.payload}`)
+        yield put(SearchAction.setSelectedDATA(res.data))
+    }catch(error){
+        yield put(SearchAction.setError(error))
+    }
+}
 
 function * fetchResultArray(action){
     try{
@@ -13,5 +22,8 @@ function * fetchResultArray(action){
 }
 
 export function * searchSaga(){
-    yield takeLatest(SearchConstants.FETCH_DATA, fetchResultArray)
+    yield all([
+        takeLatest(SearchConstants.FETCH_DATA, fetchResultArray),
+        takeLatest(SearchConstants.SELECTED, fetchSelectedDATA)
+    ])
 }

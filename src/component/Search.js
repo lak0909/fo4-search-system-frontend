@@ -2,10 +2,13 @@ import React from 'react'
 import { SearchAction } from '../actions'
 import { useDispatch, useSelector } from 'react-redux'
 import '../css/search.css'
+import BarChart from './BarChart'
 
 const Search = () => {
-    const { search, resultArray, selected } = useSelector(state => state.search)
+    const { search, resultArray, selected, selectedData } = useSelector(state => state.search)
     const dispatch = useDispatch()
+
+    console.log(selectedData)
 
     return (
         <div className="home" style={{textAlign: 'center'}}>
@@ -36,10 +39,15 @@ const Search = () => {
                 />
             </div>
             {resultArray.length === 0 ? null :
-            <div className="bp3-card bp3-elevation-1" style={{width: '100%', maxWidth: '650px', margin: '0px auto'}}>
+            <div className="bp3-card bp3-elevation-1" style={{width: '100%', maxWidth: '950px', margin: '0px auto'}}>
                 {resultArray.map( (val, index) => {
                     return(
-                        <div id={selected === val.id ? "selected": null} className={"bp3-card bp3-elevation-2 bp3-interactive"} key={index} style={{width: '160px', height: '200px', margin: '10px', display: 'inline-block'}} onClick={() => dispatch(SearchAction.setSelected(val.id))}>
+                        <div 
+                            id={selected === val.id ? "selected": null} 
+                            className={"bp3-card bp3-elevation-2 bp3-interactive"} 
+                            key={index} style={{width: '160px', height: '200px', margin: '10px', display: 'inline-block'}} 
+                            onClick={() => dispatch(SearchAction.setSelected(val.id))}
+                        >
                             <span>
                                 <img
                                     src={`http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/players/${val.id}`}
@@ -60,6 +68,7 @@ const Search = () => {
                 })}
             </div>
             }
+            <BarChart/>
         </div>
     )
 }

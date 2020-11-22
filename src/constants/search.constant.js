@@ -4,5 +4,6 @@ export const SearchConstants = {
     SETLOADING: 'SET_LOADING',
     FETCH_DATA: 'FETCH_DATA',
     SETERROR: 'SET_ERROR',
-    SELECTED: 'SELECTED'
+    SELECTED: 'SELECTED',
+    SELECTED_DATA: 'SELECTED_DATA'
 }

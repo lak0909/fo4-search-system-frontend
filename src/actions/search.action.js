@@ -6,7 +6,8 @@ export const SearchAction = {
     setLoading,
     fetchData,
     setError,
-    setSelected
+    setSelected,
+    setSelectedDATA
 }
 
 function fetchData(value){
@@ -47,6 +48,13 @@ function setError(value){
 function setSelected(value){
     return{
         type: SearchConstants.SELECTED,
+        payload: value
+    }
+}
+
+function setSelectedDATA(value){
+    return{
+        type: SearchConstants.SELECTED_DATA,
         payload: value
     }
 }
