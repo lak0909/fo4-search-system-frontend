@@ -11,15 +11,15 @@ const PlayerCard = ({ value, selectedValue, onSelect }) => {
         >
             <span>
                 <img
-                    src={`http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/players/${value.id}`}
-                    style={{ backgroundImage: 'url(' + 'http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/season_background/' + value.id.substring(0, 3) + '.png)' }}
+                    src={`http://ec2-13-209-80-204.ap-northeast-2.compute.amazonaws.com:3000/players/${value.id}`}
+                    style={{ backgroundImage: 'url(' + 'http://ec2-13-209-80-204.ap-northeast-2.compute.amazonaws.com:3000/season_background/' + value.id.substring(0, 3) + '.png)' }}
                 />
             </span>
             <div>
                 <span>
                     <img
                         style={{ verticalAlign: 'middle' }}
-                        src={'http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/season/' + value.id.substring(0, 3) + '.JPG'}
+                        src={'http://ec2-13-209-80-204.ap-northeast-2.compute.amazonaws.com:3000/season/' + value.id.substring(0, 3) + '.JPG'}
                     />
                     {value.name}
                 </span>

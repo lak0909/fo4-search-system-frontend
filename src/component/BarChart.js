@@ -37,7 +37,8 @@ const BarChart = ({ dataValue }) => {
 
     return(
         <div
-            style={{ width: '280px', height: '280px', margin: '10px', display: 'inline-block' }}
+            className="bp3-card bp3-elevation-2 bp3-interactive"
+            style={{ width: '280px', height: '320px', margin: '10px', display: 'inline-block' }}
         >
             <div className={`card border-${positionColor(dataValue.spPosition)} mb-3`}>
                 <h6 className="card-header">

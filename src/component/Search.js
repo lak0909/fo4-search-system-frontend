@@ -20,7 +20,7 @@ const Search = () => {
             <div className="logo_cont" style={{marginTop: '20px'}}>
                 <img 
                     className="logo" 
-                    src="http://ec2-54-180-32-236.ap-northeast-2.compute.amazonaws.com:3000/img/my_background.74e59402.jpg"
+                    src="http://ec2-13-209-80-204.ap-northeast-2.compute.amazonaws.com:3000/img/my_background.74e59402.jpg"
                     style={{
                         width: '100%',
                         maxWidth: '650px',
