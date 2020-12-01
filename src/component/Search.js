@@ -11,7 +11,7 @@ const Search = () => {
 
     useEffect(() => {
         return () => {
-            dispatch(SearchAction.initialize())
+            // dispatch(SearchAction.initialize())
         }
     },[])
 

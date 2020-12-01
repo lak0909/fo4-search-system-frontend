@@ -1,7 +1,9 @@
 import React from 'react'
 import { Bar } from 'react-chartjs-2'
+import { useHistory } from 'react-router-dom'
 
 const BarChart = ({ dataValue }) => {
+    const history = useHistory()
     const position = ['GK', 'SW', 'RWB', 'RB', 'RCB', 'CB', 'LCB', 'LB', 'LWB',
     'RDM', 'CDM', 'LDM', 'RM', 'RCM', 'CM', 'LCM', 'LM', 'RAM', 'CAM', 'LAM',
     'RF', 'CF', 'LF', 'RW', 'RS', 'ST', 'LS', 'LW', 'SUB']
@@ -39,6 +41,7 @@ const BarChart = ({ dataValue }) => {
         <div
             className="bp3-card bp3-elevation-2 bp3-interactive"
             style={{ width: '280px', height: '320px', margin: '10px', display: 'inline-block' }}
+            onClick={() => history.push(`/comment/${dataValue.spId}/${dataValue.spPosition}`)}
         >
             <div className={`card border-${positionColor(dataValue.spPosition)} mb-3`}>
                 <h6 className="card-header">
