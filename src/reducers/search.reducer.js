@@ -7,6 +7,8 @@ const initialState = {
         id: '',
         name: '',
     },
+    commentParam: '',
+    comment: [],
     selectedData: [],
     loading: false,
     error: ''
@@ -47,6 +49,16 @@ export const search = (state= initialState, action) => {
             return{
                 ...state,
                 selectedData: [...action.payload]
+            }
+        case SearchConstants.SET_COMMENTPARAM:
+            return{
+                ...state,
+                commentParam: action.payload
+            }
+        case SearchConstants.SET_COMMENT:
+            return{
+                ...state,
+                comment: [...action.payload]
             }
         default:
             return initialState

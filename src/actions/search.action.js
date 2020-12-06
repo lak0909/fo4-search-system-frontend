@@ -9,6 +9,8 @@ export const SearchAction = {
     setSelected,
     setSelectedDATA,
     initialize,
+    setComment,
+    setCommentParam,
 }
 
 function fetchData(value){
@@ -56,6 +58,20 @@ function setSelected(value){
 function setSelectedDATA(value){
     return{
         type: SearchConstants.SELECTED_DATA,
+        payload: value
+    }
+}
+
+function setCommentParam(value){
+    return{
+        type: SearchConstants.SET_COMMENTPARAM,
+        payload: value
+    }
+}
+
+function setComment(value){
+    return{
+        type: SearchConstants.SET_COMMENT,
         payload: value
     }
 }

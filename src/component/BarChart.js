@@ -1,9 +1,12 @@
 import React from 'react'
+import { SearchAction } from '../actions'
 import { Bar } from 'react-chartjs-2'
 import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 const BarChart = ({ dataValue }) => {
     const history = useHistory()
+    const dispatch = useDispatch()
     const position = ['GK', 'SW', 'RWB', 'RB', 'RCB', 'CB', 'LCB', 'LB', 'LWB',
     'RDM', 'CDM', 'LDM', 'RM', 'RCM', 'CM', 'LCM', 'LM', 'RAM', 'CAM', 'LAM',
     'RF', 'CF', 'LF', 'RW', 'RS', 'ST', 'LS', 'LW', 'SUB']
@@ -41,7 +44,10 @@ const BarChart = ({ dataValue }) => {
         <div
             className="bp3-card bp3-elevation-2 bp3-interactive"
             style={{ width: '280px', height: '320px', margin: '10px', display: 'inline-block' }}
-            onClick={() => history.push(`/comment/${dataValue.spId}/${dataValue.spPosition}`)}
+            onClick={() => {
+                history.push(`/comment/${dataValue.spId}/${dataValue.spPosition}`)
+                dispatch(SearchAction.setCommentParam(dataValue.spId.toString()+dataValue.spPosition.toString()))
+            }}
         >
             <div className={`card border-${positionColor(dataValue.spPosition)} mb-3`}>
                 <h6 className="card-header">
