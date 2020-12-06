@@ -16,7 +16,7 @@ const Comment = ({ match }) => {
             <div>
                 <div className="bp3-card bp3-elevation-1" style={{ margin: '1px auto', display: 'flex' }}>
                     <BarChart dataValue={data[0]}></BarChart>
-                    <div className="bp3-card bp3-elevation-1" style={{ width: '100%', maxHeight: '320px',marginBottom: '10px', marginTop: '10px', flexDirection: 'column', overflowY: 'auto' }}>
+                    <div className="bp3-card bp3-elevation-1" style={{ width: '100%', maxHeight: '320px',marginBottom: '10px', marginTop: '10px', flexDirection: 'column', overflowY: 'auto', padding: '0px' }}>
                         {comment.length === 0 ? 
                         (<div className="bp3-non-ideal-state">
                             <div className="bp3-non-ideal-state-visual">
